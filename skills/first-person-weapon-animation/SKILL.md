@@ -2,7 +2,7 @@
 name: first-person-weapon-animation
 description: Build first-person and third-person weapon animation for an Unreal shooter - gun-space rig, measured hold poses, gun-first action authoring, export and install with round-trip checks, per-weapon profiles, the blending law and measured feel checks. Use when authoring hold poses, reloads or other weapon actions, installing weapon animation, or reviewing weapon feel.
 metadata:
-  version: "0.1.0"
+  version: "0.1.2"
   updated: "2026-11-15"
 ---
 
@@ -23,7 +23,7 @@ metadata:
 
 1. **Weapon mesh:** re-pivot it and write the sockets; moving parts stay as bones. Put the support grip socket mid-handguard.
 2. **Hold pose** on `DCC_RIG`: shouldered ready, passing `HOLD_CHECKS`. Typical bands: stock within a few centimetres of the shoulder pocket, bore near level, the sight a measured distance below and right of the eye (framing comes from a camera offset, never from bending the pose), head upright, palms on their grip targets, neck and elbow guards.
-3. **Actions, gun first:** blockout; key poses on the gun bone; gun inbetweens; timing; detail; hands pass; physics pass; polish.
+3. **Actions, gun first:** the weapon carries the action, so settle its path, poses and timing on the gun bone before any hand work. Hands then follow the gun to their grip targets, and secondary motion and polish come last, so a timing change never means re-keying the hands.
 4. **Export** with a round-trip check (sub-millimetre) and a hold pose exported as two identical frames.
 5. **Install** in steps: reimport is the default; tuning writes, graph rebuilds and installs are separate, deliberate flags.
 6. **Profile:** the per-weapon profile holds zero transforms; tuning lives in the weapon class asset.

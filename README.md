@@ -4,7 +4,7 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Version 0.1.1, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
+Version 0.1.2, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 
 ## Skills
 
@@ -20,7 +20,7 @@ Version 0.1.1, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 | `engine-version-upgrade` | Inventory, patches on a branch, one engine root, snapshot, two-step builds, new baseline, save round-trip, package, cut over. | ENGINE_ROOT_FILE, ENGINE_CHECKOUT, TARGETS, SUITES, SNAPSHOT_DIR, SLOT_RULES, SHIP_GATE | The UE 5.9 cutover | 0.1.0 |
 | `editor-agent-toolsets` | Enable and use the UE 5.9 editor MCP server and toolsets: editor only, loopback, the four meta-tools, the proxy, the shipping gate. Script `scripts/mcp_call.py`. | ENGINE_ROOT, UPROJECT, MCP_JSON, TOOLSET_LIST, SLOT_RULES, INSTRUCTIONS_TEXT | The UE 5.9 cutover | 0.1.0 |
 | `creature-animation-pipeline` | Large-creature animation: biomechanics, rig profile and caps, key frames first, clip order, mirrors, calibrated gates, stamps, champion take. | RIG_SOURCES, RIG_PROFILE_FORMAT, STAMPS, REVIEW_SURFACE, CLIP_LIST, QUALITY_REFERENCE | The creature animation playbook | 0.1.0 |
-| `first-person-weapon-animation` | Gun-space rig, measured hold poses, gun-first actions, export and install, profiles, the blending law, feel checks. | DCC_RIG, WEAPON_SOCKETS, HOLD_CHECKS, EXPORTER, INSTALLER, FEEL_STANDARD, CAPTURE_LIST | The weapon animation playbook | 0.1.0 |
+| `first-person-weapon-animation` | Gun-space rig, measured hold poses, gun-first actions, export and install, profiles, the blending law, feel checks. | DCC_RIG, WEAPON_SOCKETS, HOLD_CHECKS, EXPORTER, INSTALLER, FEEL_STANDARD, CAPTURE_LIST | The weapon animation playbook | 0.1.2 |
 | `motion-matching-kit-build` | Motion-matching coverage, clip rules, curves, schema and databases, every clip wired, lab measurement. | SPEED_TABLE, CLIP_NAMING, CURVE_NAMES, KIT_FOLDER, LAB | The motion-matching set and kit docs | 0.1.0 |
 | `modular-environment-kit-production` | Kit production from baseline to shipped: core library, closure, compliance by construction, scan-gated critics, prefabs, finish bar. | GRID_CONTRACT, FINISH_SPEC, CORE_LIBRARY, PIECE_CAP, CRITIC_TARGET, MATERIAL_BAR, IMPORT_PATH | The kit production playbook and finish spec | 0.1.0 |
 | `creature-ai-state-trees` | Server-authoritative creature brains on State Trees: layers, pure selection, roles, species as data, measured feel, capture before claiming. | FEEL_TARGETS, ROLES, SPECIES_DATA, LAB, SANITY_CHECK, BUDGETS | The creature AI playbook | 0.1.0 |

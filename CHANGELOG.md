@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 (2026-11-15)
+
+- first-person-weapon-animation: the gun-first step is now stated as a principle in the library's own words instead of a fixed step list.
+
 ## 0.1.1 (2026-11-15)
 
 From the first fresh-worker tests (README rule 3), run on three skills with fresh workers given only the skill:
