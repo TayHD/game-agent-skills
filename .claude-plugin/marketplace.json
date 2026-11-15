@@ -1,0 +1,13 @@
+{
+  "name": "game-agent-skills-local",
+  "owner": {
+    "name": "Library maintainers"
+  },
+  "plugins": [
+    {
+      "name": "game-agent-skills",
+      "source": ".",
+      "description": "Transferable methods for agent teams working on an Unreal Engine game."
+    }
+  ]
+}

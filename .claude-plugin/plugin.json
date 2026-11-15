@@ -1,0 +1,10 @@
+{
+  "name": "game-agent-skills",
+  "displayName": "Game agent skills",
+  "version": "0.1.0",
+  "description": "Transferable methods for running AI agent teams on an Unreal Engine game: staged landings, the shared engine slot, briefs and reviews, test lessons, engine upgrades, animation, environment kits, creature and NPC AI, and editor agent toolsets. Methods only; every project-specific value is a named setting supplied by the host project's binding.",
+  "author": {
+    "name": "Library maintainers"
+  },
+  "keywords": ["unreal", "agents", "gamedev", "testing", "animation", "ai"]
+}
