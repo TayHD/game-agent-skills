@@ -2,7 +2,7 @@
 name: shared-engine-slot
 description: Share one machine's single Unreal process slot (editor, commandlet or UBT build) between several agents and a human through a lock file and a reservation file, with direct take, release and stall rules. Use before launching any Unreal editor, commandlet, build or MCP editor session on a machine where only one Unreal process may run.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   updated: "2026-11-15"
 ---
 
@@ -27,11 +27,13 @@ On a machine with limited RAM, one Unreal process at a time: an editor, a comman
 2. **Take.** Only when the lock is absent and `NEXT_FILE` is empty (and you are first ready in `SLOT_ORDER`) or names you exactly. Write the lock with a create-if-absent write that fails when the file exists, then read it back to confirm it names you. Delete `NEXT_FILE` in the same step when it named you. `scripts/slot.sh take "<holder>"` does this.
 3. **Before launching,** confirm `MIN_FREE_RAM_GB` and state a time limit for the run.
 4. **Release** the moment the Unreal run ends (`scripts/slot.sh release "<holder>"` refuses to delete someone else's lock). Hold per session, never across idle gaps.
-5. **Reserve** with `NEXT_FILE` only when your Unreal step is ready to start the instant the slot frees; a reservation nobody is ready to use idles the slot.
+5. **Reserve** with `NEXT_FILE` only when your Unreal step is ready to start the instant the slot frees (`scripts/slot.sh reserve "<holder>"`, which refuses when someone else is reserved); a reservation nobody is ready to use idles the slot. A stale reservation (its holder has no live heartbeat) is cleared only by the coordinator named in `SLOT_ORDER`, never by another worker.
 6. **Back-to-back rounds** check `NEXT_FILE` before each new round and yield to whoever it names.
 
 ## Rules
 
+- Holder strings match exactly, including case and spaces, in the lock, the reservation and every release.
+- The script enforces only the lock and the reservation. Free RAM, the queue order and the heartbeat are your manual steps.
 - Never kill an Unreal process you did not start. Report a foreign Unreal or UBT process that holds no lock; do not stop it.
 - Builds of other projects on the same machine take the slot too.
 - A blocked holder writes the exact blocker to its work item and heartbeat, releases unless a retry is minutes away, and ends its turn.

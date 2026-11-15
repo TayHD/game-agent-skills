@@ -2,7 +2,7 @@
 name: unreal-automation-test-lessons
 description: Checks to run before writing or running Unreal Engine automation tests, NetPIE runs, QA harnesses or commandlet batches - the recurring traps sorted by area (compile, launch flags, profiles, gates, measurement, disk). Use before any test run, harness change or batch of headless editor runs.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   updated: "2026-11-15"
 ---
 
@@ -20,6 +20,8 @@ Each line is a trap that cost at least one real run. Run the checks of every are
 | `SHARED_PIP` | The one shared folder every profile's `Intermediate/PipInstall` links to. |
 | `BASELINE_DIR` | The latest full-run baseline to compare reds against. |
 | `LEDGER` | The project's dated ledger of runs lost to test problems. |
+| `GREEN_RUNS` | Where the exact command line of each test's last green run is kept. |
+| `HARNESS_ROW_LIST` | The tests known to need a rendered editor, a sound device or their own QA switches, with their launch. |
 
 ## Before you compile
 
@@ -32,12 +34,13 @@ Each line is a trap that cost at least one real run. Run the checks of every are
 
 ## Before you launch
 
-- Copy launch flags from the test's last green run, never retype them. Commands that take commas go in a script, not inside `-ExecCmds`, which splits on commas.
+- Take the engine slot and check free RAM first (the `shared-engine-slot` skill).
+- Copy launch flags from the test's last green run in `GREEN_RUNS`, never retype them; diff your line against it. Commands that take commas go in a script, not inside `-ExecCmds`, which splits on commas.
 - Every batch uses `QA_PROFILE_RULE` (no dashes: Unreal strips them from the saved-dir suffix). A batch with the wrong suffix is invalid in full.
-- Make profiles only through `PROFILE_HELPER`, which links `Intermediate/PipInstall` to `SHARED_PIP`. A bare `mkdir` per batch costs about 5 GB per profile. Reuse profiles by name between serial batches.
-- Every engine command runs under a hard timeout.
+- Make profiles only through `PROFILE_HELPER`, which links `Intermediate/PipInstall` to `SHARED_PIP`. A bare `mkdir` per batch costs about 5 GB per profile. Reuse profiles by folder name between serial batches; do not wipe a profile before each batch unless the test needs a reset.
+- Every engine command runs under a hard timeout that kills the whole process tree (on Windows a shell `timeout` around an editor may leave children running; check, or kill the tree explicitly).
 - Never use a content-writing commandlet (for example `ResavePackages`) as a probe; it does not honour `-help` and resaves content.
-- Tests that need a rendered editor, a sound device or their own QA switches fail in a headless `-NullRHI -nosound` batch. Run them singly with their own launch before calling them product reds.
+- Tests that need a rendered editor, a sound device or their own QA switches fail in a headless `-NullRHI -nosound` batch. Run them singly with the launch `HARNESS_ROW_LIST` gives before calling them product reds.
 - Live Coding is disabled in an editor started with `-unattended` until it is enabled explicitly.
 
 ## Gates and measurement
@@ -52,6 +55,8 @@ Each line is a trap that cost at least one real run. Run the checks of every are
 
 ## Disk and files
 
+- Write a new run's logs to its own run folder; never into `BASELINE_DIR`, which is only read for comparison.
+- After the summary is kept, delete the run's profiles and saved-dir folders (by exact path, never by wildcard).
 - Raw frame dumps, traces and per-run installs are deleted after encoding or once summarised; keep the CSV or report.
 - Lab traces go where the engine's trace command is allowed to write, then get copied into the evidence folder.
 
