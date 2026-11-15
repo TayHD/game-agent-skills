@@ -2,7 +2,7 @@
 name: editor-agent-toolsets
 description: Enable and use the Unreal Engine 5.9 editor's built-in MCP server and agent toolsets safely - editor-only plugins, loopback only, the four meta-tools (list_toolsets, describe_toolsets, describe_tools, call_tool), the stdio proxy, the shipping-receipt gate and the acceptance calls. Use when turning on editor toolsets, calling editor tools from an agent, or checking that none reach a shipped build.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   updated: "2026-11-15"
 ---
 
@@ -36,7 +36,8 @@ metadata:
 2. Server settings: port 8000, tool search on, allowed origins empty (loopback only), optionally dump captured media to disk and prune that folder.
 3. Put `INSTRUCTIONS_TEXT` in the project's game config: hold the slot before any call, back up before changing assets, never edit imported art.
 4. Rebuild the editor. Test whether a commandlet binds the port before turning auto-start on.
-5. **Shipping gate:** the server and shipping client target receipts list no module whose name contains `Toolset`, `ModelContextProtocol`, `AgentLook`, `WidgetFinder` or `AIAssistant`. Check after every package.
+5. **Keep toolset content out of the cook.** In the 5.9 Preview the registry's editor module adds its generated manifest folder (`/ToolsetRegistry/ToolsetManifestSeed`) to every cook without checking the target platform, so server and client cooks fail on editor-only classes ("a module that is not available on the platform"). Add `+DirectoriesToNeverCook=(Path="/ToolsetRegistry")` to the project's game config, and remove it once an engine version checks the platform. In general, when a cook fails on an editor-only class inside plugin content, look for a module that adds directories to the cook before touching the asset.
+6. **Shipping gate:** the server and shipping client target receipts, staged files and cooked package listings contain none of the named agent plugins: `ToolsetRegistry`, `ModelContextProtocol`, `AgentLook`, `WidgetFinder`, `AIAssistant`, each toolset plugin in `TOOLSET_LIST`, and no generated manifest package. Match those names, not the bare word `Toolset`: stock engine modules such as `ToolsetCore` (linked into every executable) and `MeshModelingToolset` (geometry) contain the word and are expected. Check after every package.
 
 ## Using the tools
 
@@ -52,4 +53,4 @@ Initialize and list the four meta-tools; `list_toolsets`; then one read-only cal
 
 ## Done when
 
-The editor builds with the toolsets, every group answers a call, the shipping receipts pass the gate, and no existing harness is retired until a call-by-call mapping shows a tool replaces it.
+The editor builds with the toolsets, every group answers a call, the server and client cooks pass with the toolset content excluded, the shipping receipts pass the gate, and no existing harness is retired until a call-by-call mapping shows a tool replaces it.

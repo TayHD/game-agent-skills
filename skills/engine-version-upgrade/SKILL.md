@@ -2,7 +2,7 @@
 name: engine-version-upgrade
 description: Move an Unreal Engine source-build project to a new engine version - inventory, port and commit engine patches, snapshot, one engine-root setting, build every target, re-baseline tests, verify saves, package, then cut over and leave the knowledge behind. Use when planning or executing an engine upgrade or a move between engine previews and releases.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   updated: "2026-11-15"
 ---
 
@@ -41,6 +41,10 @@ metadata:
 - A per-run profile folder can reinstall gigabytes of Python packages; share one install.
 - Plugins can become default-on and carry runtime modules; pin them to the editor target explicitly and gate the shipping receipts.
 - The old engine folder may hold data that is not engine (exports, tests, scenes); check before deleting it.
+- A source-built engine can lack files that the engine repository ignores but the automation tool still needs (for example small resource images for a platform project the tool compiles). The first package run then fails within seconds while compiling the tool. Read the first compile error for a missing file, copy the files in from an engine build that has them, and record them, because they exist only in that tree and a fresh checkout needs them again.
+- New editor plugins can add their own folders to every cook without checking the target platform, which fails server and client cooks on editor-only classes. Exclude that content from the cook (a never-cook directory) and note when to remove the exclusion.
+- Gate shipping builds on the exact names of the plugins that must not ship, never on a bare word: stock engine modules often share a word with the agent plugins and are expected in every build.
+- A shipping client may ignore command-line travel URLs and exec commands by design. Run the unattended join check with a development client and the project's isolated test switches (including any authentication bypass the server honours only in test mode), and take a clean shipping boot to the menu as the shipping client's proof.
 
 ## Done when
 

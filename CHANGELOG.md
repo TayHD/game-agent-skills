@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 (2026-11-15)
+
+From the package smoke of an engine upgrade:
+- editor-agent-toolsets 0.1.1: keep the toolset registry's generated manifest content out of server and client cooks (a never-cook directory); the shipping gate matches the named agent plugins, not the bare word `Toolset`, because stock engine modules share it.
+- engine-version-upgrade 0.1.1: four new traps: gitignored files the automation tool needs can be missing from a source-built engine; editor plugins can add folders to every cook; gate on exact plugin names; a shipping client may ignore command-line travel and exec commands, so the unattended join check uses a development client with the project's test switches.
+
 ## 0.1.2 (2026-11-15)
 
 - first-person-weapon-animation: the gun-first step is now stated as a principle in the library's own words instead of a fixed step list.

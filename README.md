@@ -4,7 +4,7 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Version 0.1.2, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
+Version 0.1.3, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 
 ## Skills
 
@@ -17,8 +17,8 @@ Version 0.1.2, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 | `agent-work-review` | Review the real diff and evidence, the third-attempt review, escalation, the process question. | BACKUP_DIR, EVIDENCE_DIR, RULES, PLAYTEST_LIST | The manager card, test lessons | 0.1.1 |
 | `unreal-automation-test-lessons` | Recurring traps in Unreal automation tests, NetPIE runs and headless batches, as checks by area. | TEST_PREFIX, QA_PROFILE_RULE, PROFILE_HELPER, SHARED_PIP, BASELINE_DIR, LEDGER, GREEN_RUNS, HARNESS_ROW_LIST | The test lessons ledger | 0.1.1 |
 | `blueprint-to-cpp-migration` | Migrate touched Blueprint behaviour to C++ with parity tests, retire the graph, never patch it. | BP_ROOTS, READ_ONLY_ART, SAVE_MIGRATION, BACKUP_DIR | The native migration doc | 0.1.0 |
-| `engine-version-upgrade` | Inventory, patches on a branch, one engine root, snapshot, two-step builds, new baseline, save round-trip, package, cut over. | ENGINE_ROOT_FILE, ENGINE_CHECKOUT, TARGETS, SUITES, SNAPSHOT_DIR, SLOT_RULES, SHIP_GATE | The UE 5.9 cutover | 0.1.0 |
-| `editor-agent-toolsets` | Enable and use the UE 5.9 editor MCP server and toolsets: editor only, loopback, the four meta-tools, the proxy, the shipping gate. Script `scripts/mcp_call.py`. | ENGINE_ROOT, UPROJECT, MCP_JSON, TOOLSET_LIST, SLOT_RULES, INSTRUCTIONS_TEXT | The UE 5.9 cutover | 0.1.0 |
+| `engine-version-upgrade` | Inventory, patches on a branch, one engine root, snapshot, two-step builds, new baseline, save round-trip, package, cut over. | ENGINE_ROOT_FILE, ENGINE_CHECKOUT, TARGETS, SUITES, SNAPSHOT_DIR, SLOT_RULES, SHIP_GATE | The UE 5.9 cutover | 0.1.1 |
+| `editor-agent-toolsets` | Enable and use the UE 5.9 editor MCP server and toolsets: editor only, loopback, the four meta-tools, the proxy, the shipping gate. Script `scripts/mcp_call.py`. | ENGINE_ROOT, UPROJECT, MCP_JSON, TOOLSET_LIST, SLOT_RULES, INSTRUCTIONS_TEXT | The UE 5.9 cutover | 0.1.1 |
 | `creature-animation-pipeline` | Large-creature animation: biomechanics, rig profile and caps, key frames first, clip order, mirrors, calibrated gates, stamps, champion take. | RIG_SOURCES, RIG_PROFILE_FORMAT, STAMPS, REVIEW_SURFACE, CLIP_LIST, QUALITY_REFERENCE | The creature animation playbook | 0.1.0 |
 | `first-person-weapon-animation` | Gun-space rig, measured hold poses, gun-first actions, export and install, profiles, the blending law, feel checks. | DCC_RIG, WEAPON_SOCKETS, HOLD_CHECKS, EXPORTER, INSTALLER, FEEL_STANDARD, CAPTURE_LIST | The weapon animation playbook | 0.1.2 |
 | `motion-matching-kit-build` | Motion-matching coverage, clip rules, curves, schema and databases, every clip wired, lab measurement. | SPEED_TABLE, CLIP_NAMING, CURVE_NAMES, KIT_FOLDER, LAB | The motion-matching set and kit docs | 0.1.0 |
