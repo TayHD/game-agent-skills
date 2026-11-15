@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "game-agent-skills",
-      "source": ".",
+      "source": "./",
       "description": "Transferable methods for agent teams working on an Unreal Engine game."
     }
   ]

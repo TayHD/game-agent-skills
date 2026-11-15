@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4 (2026-11-15)
+
+- Marketplace manifest: the plugin's relative source is now written `./`, the form the plugin loader expects for a path inside the marketplace.
+
 ## 0.1.3 (2026-11-15)
 
 From the package smoke of an engine upgrade:
