@@ -4,7 +4,7 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Version 0.1.3, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
+Version 0.1.4, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 
 ## Skills
 
