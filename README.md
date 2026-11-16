@@ -4,7 +4,9 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Version 0.1.4, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
+Most skills assume an Unreal Engine project; `project-knowledge-system` works for any game, engine or genre and can be used on its own.
+
+Version 0.1.5, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 
 ## Skills
 
@@ -25,6 +27,7 @@ Version 0.1.4, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 | `modular-environment-kit-production` | Kit production from baseline to shipped: core library, closure, compliance by construction, scan-gated critics, prefabs, finish bar. | GRID_CONTRACT, FINISH_SPEC, CORE_LIBRARY, PIECE_CAP, CRITIC_TARGET, MATERIAL_BAR, IMPORT_PATH | The kit production playbook and finish spec | 0.1.0 |
 | `creature-ai-state-trees` | Server-authoritative creature brains on State Trees: layers, pure selection, roles, species as data, measured feel, capture before claiming. | FEEL_TARGETS, ROLES, SPECIES_DATA, LAB, SANITY_CHECK, BUDGETS | The creature AI playbook | 0.1.0 |
 | `human-npc-ai` | Human NPCs: readable awareness, fair accuracy, squads, a truthful body, lab measurement, bounded cost. | FEEL_TARGETS, LAB, PROFILES, ANIM_BUDGET, TEST_PREFIX | The human AI playbook | 0.1.0 |
+| `project-knowledge-system` | A project's knowledge base as plain files in the project folder, so the lead agent has one source of truth: knowledge map, dated decisions log, doc index, project map, design docs, playbooks, lessons, one live status file. Any engine or genre; no tracker needed. Starter files in `templates/`, drift check `scripts/kb_check.sh`. | All optional, with defaults: KNOWLEDGE_ROOT, KNOWLEDGE_MAP, DECISIONS_LOG, DOC_INDEX, PROJECT_MAP, DESIGN_DIR, PLAYBOOK_DIR, LESSONS_LEDGER, LIVE_STATE, ARCHIVE_DIR, HISTORY, RULES_FILE, OWNER, LEAD | The project's knowledge map and organisation spec | 0.1.0 |
 
 ## Using the library in a project
 

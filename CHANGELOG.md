@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5 (2026-11-15)
+
+- New skill `project-knowledge-system` 0.1.0: a project's knowledge base as plain Markdown in the project folder (knowledge map, decisions log, doc index, project map, design docs, playbooks, lessons ledger, one live status file, archive), with starter templates and the drift check `scripts/kb_check.sh`. Engine- and genre-neutral; needs no tracker. Every setting has a default, so it works without a binding. Tested before listing by a fresh worker setting it up for an unrelated engine and genre; its findings were fixed before release: store templates and per-use templates are separate, one placeholder list, setup creates the folders and copies the check script into the project, owner questions have one home, and the check matches index paths exactly and validates dates strictly.
+
 ## 0.1.4 (2026-11-15)
 
 - Marketplace manifest: the plugin's relative source is now written `./`, the form the plugin loader expects for a path inside the marketplace.
