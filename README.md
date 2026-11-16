@@ -4,9 +4,9 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Most skills assume an Unreal Engine project; `project-knowledge-system` works for any game, engine or genre and can be used on its own.
+Most skills assume an Unreal Engine project. `project-knowledge-system`, `modular-environment-kit-production` and `building-layout-check` work for any game, engine, setting, period or art style, and can be used on their own or together.
 
-Version 0.1.5, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
+Version 0.1.6, 2026-11-16. Licence: pending, see `LICENSE-PENDING.md`.
 
 ## Skills
 
@@ -24,7 +24,8 @@ Version 0.1.5, 2026-11-15. Licence: pending, see `LICENSE-PENDING.md`.
 | `creature-animation-pipeline` | Large-creature animation: biomechanics, rig profile and caps, key frames first, clip order, mirrors, calibrated gates, stamps, champion take. | RIG_SOURCES, RIG_PROFILE_FORMAT, STAMPS, REVIEW_SURFACE, CLIP_LIST, QUALITY_REFERENCE | The creature animation playbook | 0.1.0 |
 | `first-person-weapon-animation` | Gun-space rig, measured hold poses, gun-first actions, export and install, profiles, the blending law, feel checks. | DCC_RIG, WEAPON_SOCKETS, HOLD_CHECKS, EXPORTER, INSTALLER, FEEL_STANDARD, CAPTURE_LIST | The weapon animation playbook | 0.1.2 |
 | `motion-matching-kit-build` | Motion-matching coverage, clip rules, curves, schema and databases, every clip wired, lab measurement. | SPEED_TABLE, CLIP_NAMING, CURVE_NAMES, KIT_FOLDER, LAB | The motion-matching set and kit docs | 0.1.0 |
-| `modular-environment-kit-production` | Kit production from baseline to shipped: core library, closure, compliance by construction, scan-gated critics, prefabs, finish bar. | GRID_CONTRACT, FINISH_SPEC, CORE_LIBRARY, PIECE_CAP, CRITIC_TARGET, MATERIAL_BAR, IMPORT_PATH | The kit production playbook and finish spec | 0.1.0 |
+| `modular-environment-kit-production` | Modular kits for any setting, period or art style: a measured contract with one owner for every shared plane (no z-fighting, overlaps or gaps), closure before polish, generators, scan-gated blind critics, a finish bar set by the art style, prefabs checked for layout. Contract starter in `templates/KIT_CONTRACT.md`. | WORLD_BRIEF, KIT_CONTRACT, FINISH_SPEC, CORE_LIBRARY, PIECE_CAP, CRITIC_TARGET, CAMERA_RANGE, DCC, ENGINE | The grid contract, kit standards, kit playbook and finish spec | 0.2.0 |
+| `building-layout-check` | Check that a building, interior or enclosed environment of any setting, period or style is structurally sensible and properly walkable: the world brief, a space-graph script (reach, exits, dead ends, loops, funnels, vertical routes, sizes, stairs, guards), geometric probes, an eye-height review and failure patterns with fixes. Script `scripts/layout_check.py`. | WORLD_BRIEF, PROFILE, SITE, RULES_OFF and size settings, all with defaults | The prefab recipe validation, the site flow reference, kit gate lessons | 0.1.0 |
 | `creature-ai-state-trees` | Server-authoritative creature brains on State Trees: layers, pure selection, roles, species as data, measured feel, capture before claiming. | FEEL_TARGETS, ROLES, SPECIES_DATA, LAB, SANITY_CHECK, BUDGETS | The creature AI playbook | 0.1.0 |
 | `human-npc-ai` | Human NPCs: readable awareness, fair accuracy, squads, a truthful body, lab measurement, bounded cost. | FEEL_TARGETS, LAB, PROFILES, ANIM_BUDGET, TEST_PREFIX | The human AI playbook | 0.1.0 |
 | `project-knowledge-system` | A project's knowledge base as plain files in the project folder, so the lead agent has one source of truth: knowledge map, dated decisions log, doc index, project map, design docs, playbooks, lessons, one live status file. Any engine or genre; no tracker needed. Starter files in `templates/`, drift check `scripts/kb_check.sh`. | All optional, with defaults: KNOWLEDGE_ROOT, KNOWLEDGE_MAP, DECISIONS_LOG, DOC_INDEX, PROJECT_MAP, DESIGN_DIR, PLAYBOOK_DIR, LESSONS_LEDGER, LIVE_STATE, ARCHIVE_DIR, HISTORY, RULES_FILE, OWNER, LEAD | The project's knowledge map and organisation spec | 0.1.0 |

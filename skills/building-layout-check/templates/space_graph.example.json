@@ -1,0 +1,33 @@
+{
+  "name": "Example: two-storey farmhouse (passes in explore)",
+  "_format": {
+    "settings": "Optional overrides of the script defaults, named exactly as in SKILL.md, e.g. {\"SITE\": \"ruin\", \"STAIR_RISER_MAX\": 0.25, \"RULES_OFF\": \"exits\"}. Then --profile and --site, then --set (later wins). Unknown names are an error.",
+    "accepted": "Deliberate conditions: [{\"rule\": \"dead_end\", \"space\": \"vault\", \"reason\": \"strongroom, one door by design\"}]; use \"link\" for a link id; omit both to accept a rule everywhere. Rule ids: reach, return, sealed, exits, dead_end, dead_share, loop, funnel, vertical, door_width, corridor_width, large_width, headroom, step, guard, stair, tube, small, openings.",
+    "spaces": "id (unique), kind (exterior | room | chamber | corridor | passage | landing | stair | roof | deck | yard | void), storey (integer, ground 0, basement -1), area (m2); optional: x, y (plan position, m), length and width (corridors and passages, m), headroom (m), edge_drop (largest fall from a walkable edge, m) with guarded (true if a guard is there), crawl (true for deliberate low spaces), anchor (true for the main space), sealed (true for closed voids), large_route. Exactly one space is the outside world (kind exterior).",
+    "links": "a, b (space ids), kind (door | opening | stair | ramp | lift | ladder | hatch | climb | swim | squeeze | window | drop; window = one a player climbs through; drop = one-way from a to b); optional: id, width (clear, m), headroom (m), face (any label, for links to the exterior), x, y (plan position, m), step (level change at a door, m), riser, tread (m), risers (count) and spiral (true) for stairs, crawl, large_route. Model each stair flight as a stair link between the two spaces it joins; any non-drop link between two storeys is a vertical route."
+  },
+  "settings": {},
+  "accepted": [],
+  "spaces": [
+    {"id": "outside", "kind": "exterior"},
+    {"id": "hall", "kind": "corridor", "storey": 0, "area": 12, "length": 6, "width": 1.6, "x": 3, "y": 4},
+    {"id": "kitchen", "kind": "room", "storey": 0, "area": 20, "x": 8, "y": 2},
+    {"id": "parlour", "kind": "room", "storey": 0, "area": 24, "x": 8, "y": 7, "anchor": true},
+    {"id": "pantry", "kind": "room", "storey": 0, "area": 5, "x": 11, "y": 1},
+    {"id": "landing", "kind": "landing", "storey": 1, "area": 8, "x": 3, "y": 4},
+    {"id": "bed1", "kind": "room", "storey": 1, "area": 16, "x": 7, "y": 2},
+    {"id": "bed2", "kind": "room", "storey": 1, "area": 14, "x": 7, "y": 7},
+    {"id": "loft_void", "kind": "void", "storey": 2, "area": 30, "sealed": true}
+  ],
+  "links": [
+    {"a": "outside", "b": "hall", "kind": "door", "width": 1.0, "headroom": 2.1, "face": "S", "x": 3, "y": 0},
+    {"a": "outside", "b": "kitchen", "kind": "door", "width": 0.9, "headroom": 2.1, "face": "E", "x": 12, "y": 3},
+    {"a": "hall", "b": "kitchen", "kind": "door", "width": 0.9, "headroom": 2.1},
+    {"a": "hall", "b": "parlour", "kind": "opening", "width": 1.4, "headroom": 2.3},
+    {"a": "kitchen", "b": "parlour", "kind": "door", "width": 0.9, "headroom": 2.1},
+    {"a": "kitchen", "b": "pantry", "kind": "door", "width": 0.9, "headroom": 2.1},
+    {"a": "hall", "b": "landing", "kind": "stair", "width": 1.0, "headroom": 2.2, "riser": 0.18, "tread": 0.27, "risers": 15, "x": 2, "y": 5},
+    {"a": "landing", "b": "bed1", "kind": "door", "width": 0.9, "headroom": 2.1},
+    {"a": "landing", "b": "bed2", "kind": "door", "width": 0.9, "headroom": 2.1}
+  ]
+}
