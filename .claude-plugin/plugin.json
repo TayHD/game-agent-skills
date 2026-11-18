@@ -1,10 +1,18 @@
 {
   "name": "game-agent-skills",
   "displayName": "Game agent skills",
-  "version": "0.1.6",
-  "description": "Transferable methods for running AI agent teams on an Unreal Engine game: staged landings, the shared engine slot, briefs and reviews, test lessons, engine upgrades, animation, environment kits, creature and NPC AI, editor agent toolsets, and three setting-neutral skills: a project knowledge system, modular environment kits for any art style, and a building layout check. Methods only; every project-specific value is a named setting supplied by the host project's binding.",
+  "version": "0.1.7",
+  "description": "Transferable methods for running AI agent teams on an Unreal Engine game: staged landings, the shared engine slot, briefs and reviews, test lessons, engine upgrades, creature, human and first-person weapon animation, environment kits, creature and NPC AI, editor agent toolsets, and three setting-neutral skills: a project knowledge system, modular environment kits for any art style, and a building layout check. Methods only; every project-specific value is a named setting supplied by the host project's binding.",
   "author": {
     "name": "Library maintainers"
   },
-  "keywords": ["unreal", "agents", "gamedev", "testing", "animation", "ai"]
+  "keywords": [
+    "unreal",
+    "agents",
+    "gamedev",
+    "testing",
+    "animation",
+    "ai"
+  ],
+  "license": "MIT-0"
 }
