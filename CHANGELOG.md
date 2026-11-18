@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.8 (2026-11-17)
+
+- New skill `poi-design` 0.1.0: designing, building, critiquing and shipping points of interest for any setting, period, style or genre. Purpose and tier in the world, discovery without markers, the distance read, visual briefs, flow sized for players and the largest enemies with named failure patterns, story through the environment, loot placement, prop and vehicle sourcing, assembly from passed kit pieces, the finish bar, a self-check gate, blind calibrated critics (place, map and construction), review surface and stamps, fixing a fault by adding a rule, and the "does it make sense?" rule. Points to `modular-environment-kit-production` and `building-layout-check`. Not yet run by a fresh worker (README rule 3).
+- README: Contributors section.
+
 ## 0.1.7 (2026-11-17)
 
 - Licensed under MIT No Attribution (MIT-0): free use, change and redistribution with no attribution required. `LICENSE-PENDING.md` replaced by `LICENSE`; `license` set in the plugin manifest.

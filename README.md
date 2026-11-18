@@ -4,9 +4,9 @@ A library of transferable skills for AI agent teams working on an Unreal Engine 
 
 Layout: a Claude Code plugin. `.claude-plugin/plugin.json` is the manifest, `.claude-plugin/marketplace.json` lets the folder be added as a one-plugin local marketplace, and each skill is `skills/<name>/SKILL.md` with any scripts beside it.
 
-Most skills assume an Unreal Engine project. `project-knowledge-system`, `modular-environment-kit-production` and `building-layout-check` work for any game, engine, setting, period or art style, and can be used on their own or together.
+Most skills assume an Unreal Engine project. `project-knowledge-system`, `modular-environment-kit-production`, `building-layout-check` and `poi-design` work for any game, engine, setting, period or art style, and can be used on their own or together.
 
-Version 0.1.7, 2026-11-17. Licence: MIT No Attribution (MIT-0), see `LICENSE`. Use, copy, change and redistribute freely; no attribution required.
+Version 0.1.8, 2026-11-17. Licence: MIT No Attribution (MIT-0), see `LICENSE`. Use, copy, change and redistribute freely; no attribution required.
 
 ## Skills
 
@@ -27,9 +27,15 @@ Version 0.1.7, 2026-11-17. Licence: MIT No Attribution (MIT-0), see `LICENSE`. U
 | `human-character-animation` | Bespoke third-person human animation for NPCs and the player body: rig and retargeting hygiene, vetting clip drops, locomotion, stances, turn-in-place, layered aim, third-person weapon read, cover, hits and deaths, the review studio, blind calibrated critics with measured gates, owner stamps with a champion take, the blending law. | HUMAN_RIG, CLIP_REGISTRY, CLIP_LIST, STUDIO, CRITIC_RUBRIC, STAMPS, FEEL_TARGETS, LAB, CAPTURE_LIST, QUALITY_REFERENCE, REPLY_CHANNEL | The human AI locomotion, cover and clip-drop docs, the animation studio and critic process | 0.1.0 |
 | `modular-environment-kit-production` | Modular kits for any setting, period or art style: a measured contract with one owner for every shared plane (no z-fighting, overlaps or gaps), closure before polish, generators, scan-gated blind critics, a finish bar set by the art style, prefabs checked for layout. Contract starter in `templates/KIT_CONTRACT.md`. | WORLD_BRIEF, KIT_CONTRACT, FINISH_SPEC, CORE_LIBRARY, PIECE_CAP, CRITIC_TARGET, CAMERA_RANGE, DCC, ENGINE | The grid contract, kit standards, kit playbook and finish spec | 0.2.0 |
 | `building-layout-check` | Check that a building, interior or enclosed environment of any setting, period or style is structurally sensible and properly walkable: the world brief, a space-graph script (reach, exits, dead ends, loops, funnels, vertical routes, sizes, stairs, guards), geometric probes, an eye-height review and failure patterns with fixes. Script `scripts/layout_check.py`. | WORLD_BRIEF, PROFILE, SITE, RULES_OFF and size settings, all with defaults | The prefab recipe validation, the site flow reference, kit gate lessons | 0.1.0 |
+| `poi-design` | Design, build, critique and ship points of interest in an open world of any setting, period or style: purpose and tier, discovery without markers, the distance read, a visual brief per site, flow sized for players and the largest enemies, story through the environment, loot placement, prop and vehicle sourcing, assembly from passed kit pieces, the finish bar, blind calibrated critics with eye-height and aerial reviews, stamps, fault-to-rule fixes and "does it make sense?". | WORLD_BRIEF, WORLD_PLAN, POI_BRIEFS, POI_RUBRIC, FLOW_RULES, PLACEMENT_RULES, PROP_LIBRARY, PROP_POLICY, VEHICLE_CLASSES, TIERS, PLAYER_COUNT, CRITIC_MODEL, STUDIO, RULES_LEDGER and the kit and layout settings, most with defaults | The POI quality standard, flow reference, prop placement rules and critic rubric | 0.1.0 |
 | `creature-ai-state-trees` | Server-authoritative creature brains on State Trees: layers, pure selection, roles, species as data, measured feel, capture before claiming. | FEEL_TARGETS, ROLES, SPECIES_DATA, LAB, SANITY_CHECK, BUDGETS | The creature AI playbook | 0.1.0 |
 | `human-npc-ai` | Human NPCs: readable awareness, fair accuracy, squads, a truthful body, lab measurement, bounded cost. | FEEL_TARGETS, LAB, PROFILES, ANIM_BUDGET, TEST_PREFIX | The human AI playbook | 0.1.0 |
 | `project-knowledge-system` | A project's knowledge base as plain files in the project folder, so the lead agent has one source of truth: knowledge map, dated decisions log, doc index, project map, design docs, playbooks, lessons, one live status file. Any engine or genre; no tracker needed. Starter files in `templates/`, drift check `scripts/kb_check.sh`. | All optional, with defaults: KNOWLEDGE_ROOT, KNOWLEDGE_MAP, DECISIONS_LOG, DOC_INDEX, PROJECT_MAP, DESIGN_DIR, PLAYBOOK_DIR, LESSONS_LEDGER, LIVE_STATE, ARCHIVE_DIR, HISTORY, RULES_FILE, OWNER, LEAD | The project's knowledge map and organisation spec | 0.1.0 |
+
+## Contributors
+
+- Taylor ([@TayHD](https://github.com/TayHD)): creator and owner; the methods come from the game projects Taylor directs.
+- Written and maintained with AI agents (Claude) working under Taylor's direction.
 
 ## Using the library in a project
 
